@@ -16,15 +16,15 @@ namespace Todoit.Tests
                 Assert.Equal(i, nextIdNumber);
             }
         }
-        //rest test, resetNumber starts with 5 but changes 0 with PersonSequencer.Reset to see if rest works. 
+        //reset test, curentNumber starts with 5 but changes 0 with PersonSequencer.Reset to see if rest works. 
         [Fact]
         public void ResetTests()
         {
             int idReseted = 0;
-            int resetNumber = 5, expected = 5;
-            Assert.Equal(resetNumber,expected);
-            resetNumber = PersonSequencer.Reset();
-            Assert.Equal(idReseted, resetNumber);
+            int curentNumber = 5, expected = 5;
+            Assert.Equal(curentNumber,expected);
+            curentNumber = PersonSequencer.Reset();
+            Assert.Equal(idReseted, curentNumber);
         }
     }
 }
