@@ -2,36 +2,34 @@
 using System.Collections.Generic;
 using System.Text;
 
-
 namespace TodoIt.Model
 {
     public class Person
     {
+        // Private fields and propertys to allow access to private member outside the class
         private readonly int personId;
         private string firstName;
         private string lastName;
-        
-  
-        public int PersonID 
-        { 
+
+
+        public int PersonID
+        {
             get { return personId; }
-
         }
-
 
         public string FirstName
         {
-            get 
-            { 
-                return firstName; 
+            get
+            {
+                return firstName;
             }
-            set 
+            set
             {
                 if (string.IsNullOrEmpty(value))
                 {
                     throw new ArgumentException("First name must have a value");
                 }
-                firstName = value; 
+                firstName = value;
             }
         }
         public string LastName
@@ -50,7 +48,11 @@ namespace TodoIt.Model
             }
         }
 
+        public Person()
+        {
+
+        }
+
 
     }
-
 }
