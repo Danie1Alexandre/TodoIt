@@ -11,15 +11,14 @@ namespace TodoIt.Model
         private string firstName;
         private string lastName;
         
-        public Person() 
-        { 
-
-        }
-
+  
         public int PersonID 
         { 
             get { return personId; }
+
         }
+
+
         public string FirstName
         {
             get 
