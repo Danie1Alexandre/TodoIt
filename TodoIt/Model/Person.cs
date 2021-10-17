@@ -52,6 +52,10 @@ namespace TodoIt.Model
         {
 
         }
+        public Person(int newid)
+        {
+            personId = newid;
+        }
 
 
     }
