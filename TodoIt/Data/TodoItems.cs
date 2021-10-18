@@ -15,10 +15,12 @@ namespace TodoIt.Data
         {
             return arrayTodo.Length;
         }
+       
         public Todo[] FindAll()
         {
             return arrayTodo;
         }
+       
         // new Todo boject 
         public static Todo NewTodo(string description)
         {
@@ -50,10 +52,7 @@ namespace TodoIt.Data
             }
             return findTodo;
         }
-        public void clear()
-        {
-            arrayTodo = Array.Empty<Todo>();
-        }
+     
         public Todo[] FindByDoneStatus(bool doneStatus)
         {
             List<Todo> listTodo = new List<Todo>();
@@ -130,6 +129,26 @@ namespace TodoIt.Data
             }
 
             return listTodo.ToArray();
+        }
+        public static void RemoveFromArrayTodo(Todo obTodo)
+        {
+            TodoItems ob = new TodoItems();
+            try
+            {
+                int removeIndex = Array.IndexOf(arrayTodo, obTodo);
+
+                Array.ConstrainedCopy(arrayTodo, removeIndex + 1, arrayTodo, removeIndex, ob.Size() - (removeIndex + 1));
+                Array.Resize(ref arrayTodo, ob.Size() - 1);
+            }
+            catch
+            {
+                Console.WriteLine("/n removing  items failed.  ");
+            }
+
+        }
+        public void clear()
+        {
+            arrayTodo = Array.Empty<Todo>();
         }
     }
 }
