@@ -27,6 +27,20 @@ namespace Todoit.Tests
             Assert.Empty(TodoItems.ArrayTodo);
         }
         [Fact]
+        public void NewitemTodoTests()
+        {
+            Todo[] expectedTodoItem = new Todo[5];
+
+            for (int i = 0; i < 5; i++)
+            {
+                Todo actualTodoItem = TodoItems.NewTodo("test" + i);
+                Todo newTodo = new Todo(TodoSequencer.ToDoSequnceNumber, "test" + i);
+                expectedTodoItem[i] = newTodo;
+            }
+            Assert.Equal(expectedTodoItem.ToString(), TodoItems.ArrayTodo.ToString());
+        
+        }
+        [Fact]
         public void FindTodoTests()
         {
             Person findPerson = new Person(PersonSequencer.NextPersonId());

@@ -59,8 +59,24 @@ namespace TodoIt.Data
 
             return personObject;
         }
+        public static void ArrayObjectRemove(int personId)
+        {
+            People people = new People();
+            try
+            {
+                int indexToRemove = Array.IndexOf(personArray, people.FindById(personId));
+                List<Person> temp = new List<Person>(personArray);
 
-       
+                temp.RemoveAt(indexToRemove);
+                personArray = temp.ToArray();
+            }
+            catch
+            {
+                Console.WriteLine("Error removing from Array");
+            }
+
+        }
+
 
         public void Clear()
         {
