@@ -54,5 +54,82 @@ namespace TodoIt.Data
         {
             arrayTodo = Array.Empty<Todo>();
         }
+        public Todo[] FindByDoneStatus(bool doneStatus)
+        {
+            List<Todo> listTodo = new List<Todo>();
+            try
+            {
+                foreach (Todo item in arrayTodo)
+                {
+                    if (item.Done.Equals(doneStatus))
+                        listTodo.Add(item);
+                }
+            
+            }
+            catch
+            {
+                Console.WriteLine("/n FindByDone error");
+            }
+
+            return listTodo.ToArray();
+        }
+        public Todo[] FindByAssignee(int personId)
+        {
+            List<Todo> listTodo = new List<Todo>();
+            try
+            {
+                foreach (Todo item in arrayTodo)
+                {
+                    if (item.Assignee != null)
+                        if (item.Assignee.PersonID == personId)
+                            listTodo.Add(item);
+                }
+            }
+            catch
+            {
+                Console.WriteLine("/n FindByAssignee error");
+            }
+
+
+            return listTodo.ToArray();
+        }
+        public Todo[] FindByAssignee(Person assignee)
+        {
+            List<Todo> listTodo = new List<Todo>();
+            try
+            {
+                foreach (Todo item in arrayTodo)
+                {
+                    if (item.Assignee != null)
+                        if (item.Assignee == assignee)
+                            listTodo.Add(item);
+                }
+            }
+            catch
+            {
+                Console.WriteLine("/n FindByAssignee error ");
+            }
+
+            return listTodo.ToArray();
+        }
+        public Todo[] FindUnassignedTodoItems()
+        {
+            List<Todo> listTodo = new List<Todo>();
+            try
+            {
+                foreach (Todo item in arrayTodo)
+                {
+                    if (item.Assignee == null)
+                        listTodo.Add(item);
+                }
+        
+            }
+            catch
+            {
+                Console.WriteLine("/n indUnassignedTodoItems error ");
+            }
+
+            return listTodo.ToArray();
+        }
     }
 }
