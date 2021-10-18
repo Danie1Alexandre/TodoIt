@@ -13,8 +13,7 @@ namespace TodoIt.Data
        //Checks array lenght
         public int Size()
         {
-        int arrayLength = personArray.Length;
-        return arrayLength;
+          return personArray.Length;
         }
         public Person[] FindAll()
         {
