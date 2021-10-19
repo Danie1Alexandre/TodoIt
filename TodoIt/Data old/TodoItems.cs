@@ -9,18 +9,89 @@ namespace TodoIt.Data
     public class TodoItems
     {
         private static Todo[] arrayTodo = new Todo[0];
-        public static Todo[] ArrayTodo { get { return arrayTodo; } }
-        
+
         public int Size()
         {
             return arrayTodo.Length;
         }
-       
+
         public Todo[] FindAll()
         {
             return arrayTodo;
         }
-       
+
+        //Looking upp id
+        public Todo FindById(int idNumber)
+        {
+            Todo findTodo = new Todo(0, "");
+            try
+            {
+                foreach (Todo item in arrayTodo)
+                {
+                    if (item.TodoId.Equals(idNumber))
+                        findTodo = (item);
+                }
+            }
+            catch
+            {
+                Console.WriteLine("/n Id was not found, error");
+            }
+            return findTodo;
+        }
+
+        
+        public Todo[] FindByDoneStatus(bool doneStatus)
+        {
+            Todo[] Array = new Todo[Size()];
+
+            for (int i = 0; i < Size(); i++)
+            {
+                if (arrayTodo[i].Done.Equals(doneStatus))
+                    Array[i] = (arrayTodo[i]);
+            }
+            return Array;
+        }
+
+        Todo[] FindByAssignee(int personId)
+        {
+            Todo[] Array = new Todo[Size()];
+
+            for (int i = 0; i < Size(); i++)
+            {
+                if (arrayTodo[i].Assignee.Equals(personId))
+                    Array[i] = (arrayTodo[i]);
+            }
+            return Array;
+        }
+
+        public Todo[] FindByAssignee(Person assignee)
+        {
+            Todo[] Array = new Todo[Size()];
+
+            for (int i = 0; i < Size(); i++)
+            {
+                if (arrayTodo[i].Assignee.Equals(assignee))
+                    Array[i] = (arrayTodo[i]);
+            }
+            return Array;
+        }
+
+        public Todo[] FindUnassignedTodoItems()
+        {
+            Todo[] Array = new Todo[Size()];
+
+            for (int i = 0; i < Size(); i++)
+            {
+                if (arrayTodo[i].Assignee == null)
+                    Array[i] = (arrayTodo[i]);
+            }
+            return Array;
+        }
+
+
+
+
+        /*
         // new Todo boject 
         public static Todo NewTodo(string description)
         {
@@ -149,6 +220,8 @@ namespace TodoIt.Data
         public void clear()
         {
             arrayTodo = Array.Empty<Todo>();
-        }
+        }*/
+
     }
+
 }

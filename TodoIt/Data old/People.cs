@@ -8,13 +8,80 @@ namespace TodoIt.Data
     public class People
     {
         private static Person[] personArray = new Person[0];
-        public static Person[] PersonArray { get { return personArray; } }
 
-       //Checks array lenght
+
+        public People (Person[] creatPersonArray)
+        {
+            personArray = creatPersonArray;
+        }
+
+
         public int Size()
         {
-          return personArray.Length;
+            return personArray.Length;
         }
+
+        /*Allow change on array size on personArray
+        public People(int number)
+        {
+            Person[] newArray = new Person[number];
+            personArray = newArray;
+        }*/
+
+        public Person[] FindAll()
+        {
+            return personArray;
+        }
+
+        //Metod used for find matching id in personArray
+        public Person FindById(int personId)
+        {
+            Person findById = new Person();
+           
+            try
+            {
+                for (int i = 0; i < Size(); i++)
+                {
+                    if (personArray[i].PersonID.Equals(personId))
+                    {
+                        findById = personArray[i];
+                    }
+                }
+            }
+            catch
+            {
+                Console.WriteLine("\n no id was found ");
+            }
+            return findById;
+        }
+
+ 
+
+       
+        
+
+       
+
+        /*public void copyArray (Person[] newArray)
+        {
+            for (int i = 0; i < personArray.Length; i++)
+            {
+                personArray[i] = newArray[i];
+            }
+        }
+
+
+        public void Clear()
+        {
+            personArray = Array.Empty<Person>();
+        }*/
+
+
+
+
+
+        /*
+
         public Person[] FindAll()
         {
             Person[] returnArray = new Person[personArray.Length];
@@ -24,28 +91,12 @@ namespace TodoIt.Data
                 returnArray[i] = personArray[i];
             }
             return returnArray;
-        }
-        public Person FindById(int personId)
-        {
-            Person personById = new Person();
-
-            try
-            {
-                for (int i = 0; i < Size(); i++)
-                {
-                    if (personArray[i].PersonID.Equals(personId))
-                    {
-                        personById = personArray[i];
-                    }
-
-                }
-            }
-            catch
-            {
-                Console.WriteLine("\n no id was found ");
-            }
-            return personById;
-        }
+        } 
+        
+        
+        
+        
+       
         public Person NewPerson(string FirstName, string LastName)
         {
 
@@ -83,9 +134,9 @@ namespace TodoIt.Data
             personArray = Array.Empty<Person>();
         }
 
-
+        */
     }
 
-
+    
    
 }

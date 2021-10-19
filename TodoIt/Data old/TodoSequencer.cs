@@ -9,12 +9,10 @@ namespace TodoIt.Data
     {
         private static int toDoSequnceNumber;
 
-        public static int ToDoSequnceNumber { get { return toDoSequnceNumber; } }
-
         // Metod that increment next  number
         public static int NextToDoSequnceNumber()
         {
-            return ++toDoSequnceNumber;
+            return ++ toDoSequnceNumber;
         }
 
         // Metod that reset number
@@ -22,6 +20,6 @@ namespace TodoIt.Data
         {
             return toDoSequnceNumber = 0;
         }
-
     }
+    
 }

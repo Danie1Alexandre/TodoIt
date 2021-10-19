@@ -11,12 +11,25 @@ namespace TodoIt.Model
         private string firstName;
         private string lastName;
 
-
+        // adds property to Person id only return value allowed
         public int PersonID
         {
             get { return personId; }
         }
 
+        //constructor that can build the object and add id nummber to person
+        public Person(int newid)
+        {
+            personId = newid;
+        }
+       
+        //constructor that can build the object without arguments
+        public Person()
+        {
+  
+        }
+
+        // adds property to first name, and null + empty test.
         public string FirstName
         {
             get
@@ -27,11 +40,15 @@ namespace TodoIt.Model
             {
                 if (string.IsNullOrEmpty(value))
                 {
-                    throw new ArgumentException("First name must have a value");
+
+                    throw new ArgumentException ("First name can not be null or empty");
                 }
                 firstName = value;
             }
+        
         }
+
+        // adds property to last name, and null + empty test.
         public string LastName
         {
             get
@@ -42,22 +59,10 @@ namespace TodoIt.Model
             {
                 if (string.IsNullOrEmpty(value))
                 {
-                    throw new ArgumentException("Last name must have a value");
+                    throw new ArgumentException("Last name can not be null or empty");
                 }
                 lastName = value;
             }
-        }
-
-        public Person()
-        {
-
-        }
-        public Person(int newid)
-        {
-            personId = newid;
-        }
-
-
-
+        } 
     }
 }

@@ -8,7 +8,6 @@ namespace TodoIt.Data
     {
         private static int personId;
 
-
         // Metod that increment next personId number
         public static int NextPersonId()
         {

@@ -12,25 +12,20 @@ namespace TodoIt.Model
         private bool done;
         private Person assignee;
 
+        // adds property to todo id only return value allowed
         public int TodoId
         {
             get { return todoId; }
         }
+
+        // adds property to todo description 
         public string Description
         {
             get { return description; }
-            set { description = value;}
+            set { description = value; }
         }
-        public bool Done 
-        { 
-            get { return done; } set { done = value; } 
-        }
-     
-        public Person Assignee 
-        { 
-            get { return assignee; } set { assignee = value; } 
-        }
-        // constructor for todo class
+
+        // constructor for Todo class 
         public Todo(int todoId, string description)
         {
             this.todoId = todoId;
@@ -38,5 +33,18 @@ namespace TodoIt.Model
             Done = false;
             Assignee = null;
         }
-    }
+
+        // adds property to todo Done
+        public bool Done 
+        { 
+            get { return done; } set { done = value; } 
+        }
+        
+        // adds property to todo Assignee 
+        public Person Assignee 
+        { 
+            get { return assignee; } set { assignee = value; } 
+        }
+    } 
+   
 }
