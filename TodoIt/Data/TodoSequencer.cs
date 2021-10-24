@@ -2,26 +2,20 @@
 using System.Collections.Generic;
 using System.Text;
 
-
 namespace TodoIt.Data
 {
     public class TodoSequencer
     {
-        private static int toDoSequnceNumber;
+        private static int toDoId;
 
-        public static int ToDoSequnceNumber { get { return toDoSequnceNumber; } }
-
-        // Metod that increment next  number
-        public static int NextToDoSequnceNumber()
+        public int ToDoId
         {
-            return ++toDoSequnceNumber;
+            get { return toDoId; }
+            set { toDoId = value; }
         }
 
-        // Metod that reset number
-        public static int ResetToDoSequnceNumber()
-        {
-            return toDoSequnceNumber = 0;
-        }
+        public static int NextToDoId() { return ++toDoId; }
 
+        public static int ResetToDO() { return toDoId = 0; }
     }
 }

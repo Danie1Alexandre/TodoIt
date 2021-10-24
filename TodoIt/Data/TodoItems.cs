@@ -2,153 +2,161 @@
 using System.Collections.Generic;
 using System.Text;
 using TodoIt.Model;
-using TodoIt.Data;
 
 namespace TodoIt.Data
 {
     public class TodoItems
     {
-        private static Todo[] arrayTodo = new Todo[0];
-        public static Todo[] ArrayTodo { get { return arrayTodo; } }
-        
+        private static Todo[] todoArray = new Todo[0];
+
+        public Todo[] TodoArray
+        {
+            get { return todoArray; }
+            set { todoArray = value; }
+        }
+
         public int Size()
         {
-            return arrayTodo.Length;
+            return todoArray.Length;
         }
-       
-        public Todo[] FindAll()
+
+        public Todo[] FindAll() { return todoArray; }
+
+        public Todo FindById(int personId, string description)
         {
-            return arrayTodo;
+            Todo findTodoId = new Todo(personId, description);
+            Todo[] todoFound = new Todo[Size()];
+
+            for (int i = 0; i < Size(); i++)
+            {
+                if (findTodoId.TodoId == todoArray[i].TodoId)
+                {
+                    todoFound[1] = todoArray[i];
+                    break;
+                }
+            }
+            return todoFound[1];
         }
-       
-        // new Todo boject 
-        public static Todo NewTodo(string description)
+
+        public Todo addNewTodo()
         {
+            Todo newTodo = new Todo (TodoSequencer.NextToDoId(),"");
 
-            var newTodo = new Todo(TodoSequencer.NextToDoSequnceNumber(), description);
+            //incrase size of arry
+            int arraySize = Size() + 1;
+            Array.Resize(ref todoArray, arraySize);
 
-            int size = arrayTodo.Length + 1;
-            Array.Resize(ref arrayTodo, size);
-            arrayTodo[size - 1] = newTodo;
+            //-1 is nedded to set newPerson to start in arry number 0.
+            todoArray[arraySize - 1] = newTodo;
 
             return newTodo;
         }
 
-        //Looking upp id
-        public Todo FindById(int todoId)
+        public void Clear()
         {
-            Todo findTodo = new Todo(0, "");
-            try
-            {
-                foreach (Todo item in arrayTodo)
-                {
-                    if (item.TodoId.Equals(todoId))
-                        findTodo = (item);
-                }
-            }
-            catch
-            {
-                Console.WriteLine("/n Erro when finding id ");
-            }
-            return findTodo;
+            todoArray = Array.Empty<Todo>();
         }
-     
+
         public Todo[] FindByDoneStatus(bool doneStatus)
         {
-            List<Todo> listTodo = new List<Todo>();
-            try
-            {
-                foreach (Todo item in arrayTodo)
-                {
-                    if (item.Done.Equals(doneStatus))
-                        listTodo.Add(item);
-                }
+            int arraySize = 0;
+            Todo[] todoFound = new Todo[arraySize];
+            int addItem = 0;
             
-            }
-            catch
+            for (int i = 0; i < Size(); i++)
             {
-                Console.WriteLine("/n FindByDone error");
-            }
-
-            return listTodo.ToArray();
-        }
-        public Todo[] FindByAssignee(int personId)
-        {
-            List<Todo> listTodo = new List<Todo>();
-            try
-            {
-                foreach (Todo item in arrayTodo)
+                if (todoArray[i].Done == doneStatus)
                 {
-                    if (item.Assignee != null)
-                        if (item.Assignee.PersonID == personId)
-                            listTodo.Add(item);
+                    arraySize++;
+                    Array.Resize(ref todoFound, arraySize);
+                    todoFound[addItem] = todoArray[i];
+                    addItem++;
                 }
             }
-            catch
-            {
-                Console.WriteLine("/n FindByAssignee error");
-            }
-
-
-            return listTodo.ToArray();
+            return todoFound;
         }
+        
+        public Todo[] FindByAssignee(int personId) 
+        {
+            int arraySize = 0;
+            Todo[] todoFound = new Todo[arraySize];
+            int addItem = 0;
+
+            for (int i = 0; i < Size(); i++)
+            {
+                if (todoArray[i].Assignee.PersonID == personId)
+                {
+                    arraySize++;
+                    Array.Resize(ref todoFound, arraySize);
+                    todoFound[addItem] = todoArray[i];
+                    addItem++;
+                }
+            }
+            return todoFound;
+        }
+
         public Todo[] FindByAssignee(Person assignee)
         {
-            List<Todo> listTodo = new List<Todo>();
-            try
+            int arraySize = 0;
+            Todo[] todoFound = new Todo[arraySize];
+            int addItem = 0;
+
+            for (int i = 0; i < Size(); i++)
             {
-                foreach (Todo item in arrayTodo)
+                if (todoArray[i].Assignee == assignee)
                 {
-                    if (item.Assignee != null)
-                        if (item.Assignee == assignee)
-                            listTodo.Add(item);
+                    arraySize++;
+                    Array.Resize(ref todoFound, arraySize);
+                    todoFound[addItem] = todoArray[i];
+                    addItem++;
                 }
             }
-            catch
-            {
-                Console.WriteLine("/n FindByAssignee error ");
-            }
-
-            return listTodo.ToArray();
+            return todoFound;
         }
+
         public Todo[] FindUnassignedTodoItems()
         {
-            List<Todo> listTodo = new List<Todo>();
-            try
+            int arraySize = 0;
+            Todo[] todoFound = new Todo[arraySize];
+            int addItem = 0;
+
+            for (int i = 0; i < Size(); i++)
             {
-                foreach (Todo item in arrayTodo)
+                if (todoArray[i].Assignee == null)
                 {
-                    if (item.Assignee == null)
-                        listTodo.Add(item);
+                    arraySize++;
+                    Array.Resize(ref todoFound, arraySize);
+                    todoFound[addItem] = todoArray[i];
+                    addItem++;
                 }
-        
             }
-            catch
-            {
-                Console.WriteLine("/n indUnassignedTodoItems error ");
-            }
-
-            return listTodo.ToArray();
+            return todoFound;
         }
-        public static void RemoveFromArrayTodo(Todo obTodo)
-        {
-            TodoItems ob = new TodoItems();
-            try
-            {
-                int removeIndex = Array.IndexOf(arrayTodo, obTodo);
 
-                Array.ConstrainedCopy(arrayTodo, removeIndex + 1, arrayTodo, removeIndex, ob.Size() - (removeIndex + 1));
-                Array.Resize(ref arrayTodo, ob.Size() - 1);
-            }
-            catch
-            {
-                Console.WriteLine("/n removing  items failed.  ");
-            }
-
-        }
-        public void clear()
+    
+        public Todo[] removeObjectFromArray(int todoId )
         {
-            arrayTodo = Array.Empty<Todo>();
+
+            int arraySize = 0;
+            Todo[] todoFound = new Todo[arraySize];
+            int addItem = 0;
+
+            for (int i = 0; i < Size(); i++)
+            {
+                if (todoArray[i].TodoId == todoId)
+                {
+                    Array.Clear(todoArray,i,1);
+                }
+                else
+                {
+                    arraySize++;
+                    Array.Resize(ref todoFound, arraySize);
+                    todoFound[addItem] = todoArray[i];
+                    addItem++;
+                }
+            }
+            todoArray = todoFound;
+            return  todoArray;
         }
     }
 }

@@ -8,18 +8,13 @@ namespace TodoIt.Data
     {
         private static int personId;
 
-
-        // Metod that increment next personId number
-        public static int NextPersonId()
-        {
-            return ++ personId;   
+        public int PersonId 
+        { 
+            get { return personId; } set { personId = value; } 
         }
 
-        // Metod that reset personId number
-        public static int Reset()
-        {
-            return  personId = 0;   
-        }
+        public static int NextPersonId() {return ++ personId;}
 
+        public static int Reset() { return personId = 0; }
     }
 }
