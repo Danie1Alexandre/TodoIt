@@ -11,13 +11,15 @@ namespace Todoit.Tests
         [Fact]
         public void CreatTodoTests()
         {
-            Person HAL9000 = new Person(1999) { FirstName = "Neo", LastName = "The One" };
-            Todo todoObject = new Todo(2001, "Space odyssey") { Assignee = HAL9000, Done = true};
+            Todo theMatrix = new Todo(1, "Enter the Matrix");
+            Todo[] array = new Todo[1];
+            Person neo = new Person(1999) { FirstName = "Neo", LastName = "The One" };
+            Todo jump = new Todo(1, "jump") { Done = true, Assignee = neo };
 
-            Assert.Equal(2001, todoObject.TodoId);
-            Assert.Equal("Space odyssey", todoObject.Description);
-            Assert.Equal(HAL9000, todoObject.Assignee);
-            Assert.True(todoObject.Done);
+            Assert.Equal(1, jump.TodoId);
+            Assert.Equal("jump", jump.Description);
+            Assert.Equal(neo, jump.Assignee);
+            Assert.True(jump.Done);
         }
 
 

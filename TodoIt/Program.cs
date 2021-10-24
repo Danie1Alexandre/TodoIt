@@ -1,4 +1,5 @@
-﻿using System;
+﻿//Made by Daniel Alexandre 2021
+using System;
 using TodoIt.Model;
 using TodoIt.Data;
 
@@ -269,6 +270,14 @@ namespace TodoIt
             Console.WriteLine(theMatrix.ArrayWithPeople[0].FirstName);
             Console.WriteLine(theMatrix.ArrayWithPeople[0].PersonID);
             Console.WriteLine(theMatrix.FindById(1).LastName);
+
+            TodoItems theMatrix2 = new TodoItems();
+            Person neo = new Person(1999) { FirstName = "Neo", LastName = "The One" };
+            theMatrix2.addNewTodo();
+            theMatrix2.TodoArray[0].Done = true;
+            theMatrix2.TodoArray[0].Assignee = neo;
+
+            Console.WriteLine(theMatrix2.TodoArray[0].Description);
 
 
 

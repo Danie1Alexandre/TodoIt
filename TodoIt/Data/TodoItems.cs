@@ -5,7 +5,7 @@ using TodoIt.Model;
 
 namespace TodoIt.Data
 {
-    class TodoItems
+    public class TodoItems
     {
         private static Todo[] todoArray = new Todo[0];
 
@@ -27,7 +27,7 @@ namespace TodoIt.Data
             Todo findTodoId = new Todo(personId, description);
             Todo[] todoFound = new Todo[Size()];
 
-            for (int i = 1; i < Size(); i++)
+            for (int i = 0; i < Size(); i++)
             {
                 if (findTodoId.TodoId == todoArray[i].TodoId)
                 {
@@ -157,9 +157,6 @@ namespace TodoIt.Data
             }
             todoArray = todoFound;
             return  todoArray;
-
         }
-
-
     }
 }
