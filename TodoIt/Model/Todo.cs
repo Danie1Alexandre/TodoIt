@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TodoIt.Model
 {
-    class Todo
+    public class Todo
     {
         private readonly int todoId;
         private string description;

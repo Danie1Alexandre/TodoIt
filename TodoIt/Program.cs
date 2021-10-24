@@ -95,166 +95,185 @@ namespace TodoIt
             Console.WriteLine(theMatrix.FindById(1999).LastName);*/
 
             // add person
-           /* People theMatrix = new People();
+            /* People theMatrix = new People();
 
-            Person mrAndessson = new Person(2002);
-            mrAndessson = theMatrix.addNewPerson("mr", "andresson");
-            Console.WriteLine(theMatrix.ArrayWithPeople[0].PersonID + " " + theMatrix.ArrayWithPeople[0].FirstName + " " + theMatrix.ArrayWithPeople[0].LastName);
+             Person mrAndessson = new Person(2002);
+             mrAndessson = theMatrix.addNewPerson("mr", "andresson");
+             Console.WriteLine(theMatrix.ArrayWithPeople[0].PersonID + " " + theMatrix.ArrayWithPeople[0].FirstName + " " + theMatrix.ArrayWithPeople[0].LastName);
 
-            Person Trinity = new Person(2002);
-            Trinity = theMatrix.addNewPerson("Trinity", "love");
-            Console.WriteLine(theMatrix.ArrayWithPeople[1].PersonID + " " + theMatrix.ArrayWithPeople[1].FirstName + " " + theMatrix.ArrayWithPeople[1].LastName);
+             Person Trinity = new Person(2002);
+             Trinity = theMatrix.addNewPerson("Trinity", "love");
+             Console.WriteLine(theMatrix.ArrayWithPeople[1].PersonID + " " + theMatrix.ArrayWithPeople[1].FirstName + " " + theMatrix.ArrayWithPeople[1].LastName);
 
-            Console.WriteLine(theMatrix.FindById(2).LastName);
+             Console.WriteLine(theMatrix.FindById(2).LastName);
 
-            theMatrix.Clear();
+             theMatrix.Clear();
 
-            TodoItems toDoCreator = new TodoItems();
-
-
-
-
-            toDoCreator.addNewTodo();
-            toDoCreator.TodoArray[0].Description = "blue";
-            toDoCreator.TodoArray[0].Done = false;
-
-            toDoCreator.addNewTodo();
-            toDoCreator.TodoArray[1].Description = "blue";
-            toDoCreator.TodoArray[1].Done = true;
-
-            toDoCreator.addNewTodo();
-            toDoCreator.TodoArray[2].Description = "blue";
-            toDoCreator.TodoArray[2].Done = false;
-
-            toDoCreator.addNewTodo();
-            toDoCreator.TodoArray[3].Description = "blue";
-            toDoCreator.TodoArray[3].Done = true;
-
-            toDoCreator.addNewTodo();
-            toDoCreator.TodoArray[4].Description = "blue";
-            toDoCreator.TodoArray[4].Done = false;
-
-
-            Console.WriteLine(toDoCreator.TodoArray[0].Description);
-            toDoCreator.TodoArray[0].Description = "red";
-            Console.WriteLine(toDoCreator.TodoArray[0].Description);
-            Console.WriteLine(toDoCreator.TodoArray[0].Done);
-
-            Todo[] doneStatus = new Todo[0];
-
-            doneStatus = toDoCreator.FindByDoneStatus(false);
-           
-            Console.WriteLine(doneStatus[0].Done);
-            Console.WriteLine(doneStatus.Length);
-
-            
-            Console.WriteLine("\nloop");
-            
-            int x = 0;
-            for (int i = 0; i < doneStatus.Length; i++)
-            {
-                Console.WriteLine(doneStatus[x].Done);
-                x++; 
-            }*/
-
-            Console.WriteLine("Assignee");
-            // assaignee
-            //add person
-            Person mrAndessson = new Person(2002);
-            People theMatrix = new People();
-            mrAndessson = theMatrix.addNewPerson("mr", "andresson");
-
-            // add task
-            TodoItems toDoCreator = new TodoItems();
-            toDoCreator.addNewTodo();
-            toDoCreator.TodoArray[0].Assignee = mrAndessson;
-            
-            
-            //task to do created 1
-            Todo driveToSchool = new Todo(0, "Drive");
-            // task adde to array
-            toDoCreator.TodoArray[0] = driveToSchool;
-            // tassk i assigneed to a person
-            driveToSchool.Assignee = mrAndessson;
-
-            //task 2
-            Todo fish = new Todo(1, "fish");
-            toDoCreator.addNewTodo();
-            toDoCreator.TodoArray[1] = fish;
-            
-
-            //task 
-            Todo cookFood = new Todo(2, "cook");
-            toDoCreator.addNewTodo();
-            toDoCreator.TodoArray[2] = cookFood;
-            
-
-            Todo[] assigneeArray = new Todo[0];
+             TodoItems toDoCreator = new TodoItems();
 
 
 
 
+             toDoCreator.addNewTodo();
+             toDoCreator.TodoArray[0].Description = "blue";
+             toDoCreator.TodoArray[0].Done = false;
+
+             toDoCreator.addNewTodo();
+             toDoCreator.TodoArray[1].Description = "blue";
+             toDoCreator.TodoArray[1].Done = true;
+
+             toDoCreator.addNewTodo();
+             toDoCreator.TodoArray[2].Description = "blue";
+             toDoCreator.TodoArray[2].Done = false;
+
+             toDoCreator.addNewTodo();
+             toDoCreator.TodoArray[3].Description = "blue";
+             toDoCreator.TodoArray[3].Done = true;
+
+             toDoCreator.addNewTodo();
+             toDoCreator.TodoArray[4].Description = "blue";
+             toDoCreator.TodoArray[4].Done = false;
+
+
+             Console.WriteLine(toDoCreator.TodoArray[0].Description);
+             toDoCreator.TodoArray[0].Description = "red";
+             Console.WriteLine(toDoCreator.TodoArray[0].Description);
+             Console.WriteLine(toDoCreator.TodoArray[0].Done);
+
+             Todo[] doneStatus = new Todo[0];
+
+             doneStatus = toDoCreator.FindByDoneStatus(false);
+
+             Console.WriteLine(doneStatus[0].Done);
+             Console.WriteLine(doneStatus.Length);
+
+
+             Console.WriteLine("\nloop");
+
+             int x = 0;
+             for (int i = 0; i < doneStatus.Length; i++)
+             {
+                 Console.WriteLine(doneStatus[x].Done);
+                 x++; 
+             }*/
             /*
-            
-            assigneeArray = toDoCreator.FindByAssignee (1);
+             Console.WriteLine("Assignee");
+             // assaignee
+             //add person
+             Person mrAndessson = new Person(2002);
+             People theMatrix = new People();
+             mrAndessson = theMatrix.addNewPerson("mr", "andresson");
+
+             // add task
+             TodoItems toDoCreator = new TodoItems();
+             toDoCreator.addNewTodo();
+             toDoCreator.TodoArray[0].Assignee = mrAndessson;
 
 
-            
-            Console.WriteLine(assigneeArray.Length);
-            Console.WriteLine(toDoCreator.TodoArray[0].Assignee.LastName);
-            Console.WriteLine(toDoCreator.TodoArray[0].Assignee.PersonID);
+             //task to do created 1
+             Todo driveToSchool = new Todo(0, "Drive");
+             // task adde to array
+             toDoCreator.TodoArray[0] = driveToSchool;
+             // tassk i assigneed to a person
+             driveToSchool.Assignee = mrAndessson;
 
-            
-            Console.WriteLine("\n loop test");
-            Console.WriteLine(assigneeArray[0].Assignee.FirstName);
-            int x = 0;
-            for (int i = 0; i < assigneeArray.Length; i++)
-            {
-                Console.WriteLine(assigneeArray[x].Description);
-                x++;
-            }
-
-            assigneeArray = toDoCreator.FindByAssignee(mrAndessson);
-            Console.WriteLine(assigneeArray[0].Assignee.LastName);
-
-            x = 0;
-            for (int i = 0; i < assigneeArray.Length; i++)
-            {
-                Console.WriteLine(assigneeArray[x].Description);
-                x++;
-            }
-            */
-            assigneeArray = toDoCreator.FindUnassignedTodoItems();
-            Console.WriteLine(assigneeArray[0].Description);
-            Console.WriteLine(assigneeArray[1].Description);
-            Console.WriteLine(assigneeArray.Length);
-            int x = 0;
-            for (int i = 0; i < assigneeArray.Length; i++)
-            {
-                Console.WriteLine(assigneeArray[x].Description);
-                x++;
-            }
-            TodoSequencer Number = new TodoSequencer();
-            Console.WriteLine("sn" + Number.ToDoId);
+             //task 2
+             Todo fish = new Todo(1, "fish");
+             toDoCreator.addNewTodo();
+             toDoCreator.TodoArray[1] = fish;
 
 
-            assigneeArray = toDoCreator.removeObjectFromArray(2);
-            x = 0;
-            Console.WriteLine("clear made: " + assigneeArray.Length);
-            for (int i = 0; i < assigneeArray.Length; i++)
-            {
-                Console.WriteLine(assigneeArray[x].Description);
-                x++;
-            }
-            Console.WriteLine("sn" + Number.ToDoId);
+             //task 
+             Todo cookFood = new Todo(2, "cook");
+             toDoCreator.addNewTodo();
+             toDoCreator.TodoArray[2] = cookFood;
 
-            Todo fish2 = new Todo(1, "lax");
-            toDoCreator.addNewTodo();
-            toDoCreator.addNewTodo();
 
-            toDoCreator.TodoArray[2] = fish2;
+             Todo[] assigneeArray = new Todo[0];
 
-            Console.WriteLine("sn" + Number.ToDoId);
+
+
+
+
+
+
+             /*
+
+             assigneeArray = toDoCreator.FindByAssignee (1);
+
+
+
+             Console.WriteLine(assigneeArray.Length);
+             Console.WriteLine(toDoCreator.TodoArray[0].Assignee.LastName);
+             Console.WriteLine(toDoCreator.TodoArray[0].Assignee.PersonID);
+
+
+             Console.WriteLine("\n loop test");
+             Console.WriteLine(assigneeArray[0].Assignee.FirstName);
+             int x = 0;
+             for (int i = 0; i < assigneeArray.Length; i++)
+             {
+                 Console.WriteLine(assigneeArray[x].Description);
+                 x++;
+             }
+
+             assigneeArray = toDoCreator.FindByAssignee(mrAndessson);
+             Console.WriteLine(assigneeArray[0].Assignee.LastName);
+
+             x = 0;
+             for (int i = 0; i < assigneeArray.Length; i++)
+             {
+                 Console.WriteLine(assigneeArray[x].Description);
+                 x++;
+             }
+
+             assigneeArray = toDoCreator.FindUnassignedTodoItems();
+             Console.WriteLine(assigneeArray[0].Description);
+             Console.WriteLine(assigneeArray[1].Description);
+             Console.WriteLine(assigneeArray.Length);
+             int x = 0;
+             for (int i = 0; i < assigneeArray.Length; i++)
+             {
+                 Console.WriteLine(assigneeArray[x].Description);
+                 x++;
+             }
+             TodoSequencer Number = new TodoSequencer();
+             Console.WriteLine("sn" + Number.ToDoId);
+
+
+             assigneeArray = toDoCreator.removeObjectFromArray(2);
+             x = 0;
+             Console.WriteLine("clear made: " + assigneeArray.Length);
+             for (int i = 0; i < assigneeArray.Length; i++)
+             {
+                 Console.WriteLine(assigneeArray[x].Description);
+                 x++;
+             }
+             Console.WriteLine("sn" + Number.ToDoId);
+
+             Todo fish2 = new Todo(1, "lax");
+             toDoCreator.addNewTodo();
+             toDoCreator.addNewTodo();
+
+             toDoCreator.TodoArray[2] = fish2;
+
+             Console.WriteLine("sn" + Number.ToDoId);*/
+
+            People theMatrix = new People();
+            Person test = new Person(0);
+            theMatrix.addNewPerson("mr","andersson");
+            theMatrix.addNewPerson("mr", "andersson2");
+
+            test = theMatrix.FindById(1); 
+
+            Console.WriteLine(theMatrix.ArrayWithPeople[0].FirstName);
+            Console.WriteLine(theMatrix.ArrayWithPeople[0].PersonID);
+            Console.WriteLine(theMatrix.FindById(1).LastName);
+
+
+
+
+
 
 
 

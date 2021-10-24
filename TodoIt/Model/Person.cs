@@ -4,13 +4,13 @@ using System.Text;
 
 namespace TodoIt.Model
 {
-    class Person
+    public class Person
     {
         private readonly int personId;
         private string firstName;
         private string lastName;
 
-        // Constructor (id and personid not needed)
+        // Constructor 
         public Person(int id)
         {
             personId = id;

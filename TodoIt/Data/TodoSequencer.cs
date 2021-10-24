@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TodoIt.Data
 {
-    class TodoSequencer
+    public class TodoSequencer
     {
         private static int toDoId;
 

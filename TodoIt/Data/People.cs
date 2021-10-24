@@ -5,7 +5,7 @@ using TodoIt.Model;
 
 namespace TodoIt.Data
 {
-    class People
+    public class People
     {
         private static Person[] arrayWithPeople = new Person[0];
 
@@ -24,21 +24,17 @@ namespace TodoIt.Data
 
         public Person FindById(int personId)
         {
-            Person findPersonId = new Person(personId);
-            
-            Person[] personFound = new Person[Size()];
-            
+            Person findPersonId = new Person(0);
 
-            for (int i = 1; i < Size(); i++)
+            for (int i = 0; i < Size(); i++)
             {
-
-                if (findPersonId.PersonID == arrayWithPeople[i].PersonID)
+                if (arrayWithPeople[i].PersonID == personId)
                 {
-                    personFound[1] = arrayWithPeople[i];
+                    findPersonId = arrayWithPeople[i];
                     break;
                 }
             }
-            return personFound[1];
+            return findPersonId;
         }
 
         public Person addNewPerson(string firstName, string lastName)
