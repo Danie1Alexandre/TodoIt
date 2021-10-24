@@ -21,8 +21,5 @@ namespace Todoit.Tests
             Assert.Equal(neo, jump.Assignee);
             Assert.True(jump.Done);
         }
-
-
- 
     }
 }
